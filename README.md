@@ -1,2 +1,2 @@
 # LuminosityQuest
-a game for the Mini Jam 150
+Game for the [Mini Jam 150](https://itch.io/jam/mini-jam-150-magic)https://itch.io/jam/mini-jam-150-magic
