@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlqb1ai3q2cny"]
+
+[ext_resource type="Texture2D" uid="uid://blvtrn4u4r2vi" path="res://Sprites/wiz.png" id="1_cxn8k"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_el1mx"]
+[ext_resource type="Texture2D" uid="uid://b3afl5abseqxp" path="res://Sprites/wiz_jump.png" id="3_16g6m"]
+[ext_resource type="Texture2D" uid="uid://dthosjp3orcel" path="res://Sprites/wiz_walk1.png" id="4_1fm2v"]
+[ext_resource type="Texture2D" uid="uid://dg3vgrpji13jg" path="res://Sprites/wiz_walk2.png" id="5_s7vlw"]
+[ext_resource type="Texture2D" uid="uid://4p8tne2f13ta" path="res://Sprites/magic_head.png" id="6_x8um2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cof0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cxn8k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_16g6m")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1fm2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s7vlw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd6x3"]
+size = Vector2(4, 6)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_el1mx")
+
+[node name="PSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cof0a")
+animation = &"walk"
+frame_progress = 0.327158
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pd6x3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(23, 0)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0.278431, 0.266667, 0.462745, 1)
+
+[node name="MHead" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_x8um2")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
