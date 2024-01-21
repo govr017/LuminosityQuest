@@ -23,8 +23,8 @@ func _physics_process(delta):
 		$Line2D.set_point_position(1, Vector2(0,0))
 		$MHead.visible = false
 		$Line2D.visible = false
-	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !$Timer.is_stopped()):
+		$JumpSFX.play()
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_just_released("jump"):
 		jump_cut()
@@ -41,6 +41,7 @@ func _physics_process(delta):
 			$Line2D.set_point_position(1, d_direction_staff)
 			$MHead.visible = true
 			$MHead.position = d_direction_staff
+			$StaffSFX.play()
 			velocity.x = -direction_staff.x * 150
 			velocity.y = -direction_staff.y * 150
 	# Get the input direction and handle the movement/deceleration.

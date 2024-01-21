@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://djxs40iue51hy"]
+
+[ext_resource type="Texture2D" uid="uid://ckoxr8oqehp5x" path="res://Sprites/darkness.png" id="1_itrs5"]
+[ext_resource type="Script" path="res://Scripts/win.gd" id="1_v2tn0"]
+[ext_resource type="FontFile" uid="uid://cnsmgx8hbown7" path="res://Fonts/Magero.ttf" id="2_otu1g"]
+[ext_resource type="AudioStream" uid="uid://2c562m2tjocq" path="res://Sounds/moonstone.wav" id="4_trdhf"]
+[ext_resource type="Texture2D" uid="uid://blvtrn4u4r2vi" path="res://Sprites/wiz.png" id="5_6amea"]
+[ext_resource type="Texture2D" uid="uid://b3afl5abseqxp" path="res://Sprites/wiz_jump.png" id="6_oxwwu"]
+[ext_resource type="Texture2D" uid="uid://c68pjln4jyq37" path="res://Sprites/dance1.png" id="7_kdyc4"]
+[ext_resource type="Texture2D" uid="uid://bgr56w362lpqk" path="res://Sprites/dance2.png" id="8_j32hq"]
+[ext_resource type="Texture2D" uid="uid://dthosjp3orcel" path="res://Sprites/wiz_walk1.png" id="9_xnhkv"]
+[ext_resource type="Texture2D" uid="uid://dg3vgrpji13jg" path="res://Sprites/wiz_walk2.png" id="10_r73ho"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w26o5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6amea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oxwwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kdyc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j32hq")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6amea")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oxwwu")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xnhkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r73ho")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="win" type="Node2D"]
+script = ExtResource("1_v2tn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(316, 0)
+scale = Vector2(4.95, 1)
+texture = ExtResource("1_itrs5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 768.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(0.54902, 0.937255, 0.713726, 1)
+theme_override_fonts/font = ExtResource("2_otu1g")
+theme_override_font_sizes/font_size = 24
+text = "YOU WIN!"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 92.0
+offset_right = 772.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(0.54902, 0.937255, 0.713726, 1)
+theme_override_fonts/font = ExtResource("2_otu1g")
+theme_override_font_sizes/font_size = 16
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_trdhf")
+autoplay = true
+bus = &"Music"
+
+[node name="PSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(76, 80)
+sprite_frames = SubResource("SpriteFrames_w26o5")
+animation = &"dance"
+
+[node name="PSprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 80)
+sprite_frames = SubResource("SpriteFrames_w26o5")
+animation = &"dance"
+
+[node name="PSprite3" type="AnimatedSprite2D" parent="."]
+position = Vector2(92, 80)
+sprite_frames = SubResource("SpriteFrames_w26o5")
+animation = &"dance"

@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://crt4y45e48eni"]
+
+[ext_resource type="Texture2D" uid="uid://cw1wrft6plwrh" path="res://Sprites/grabber.png" id="1_ix0xu"]
+[ext_resource type="Texture2D" uid="uid://k7inijh7qbqp" path="res://Sprites/c4.png" id="2_36a2e"]
+[ext_resource type="Texture2D" uid="uid://crx2vwnpwoa60" path="res://Sprites/c1.png" id="3_kgv4e"]
+[ext_resource type="FontFile" uid="uid://cnsmgx8hbown7" path="res://Fonts/Magero.ttf" id="4_4l4h4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mjch"]
+texture = ExtResource("2_36a2e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8nai"]
+texture = ExtResource("3_kgv4e")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dhu8n"]
+color = Color(0.427451, 0.737255, 0.72549, 1)
+grow_begin = 0.0
+thickness = 4
+
+[resource]
+default_font = ExtResource("4_4l4h4")
+HSlider/icons/grabber = ExtResource("1_ix0xu")
+HSlider/icons/grabber_disabled = ExtResource("1_ix0xu")
+HSlider/icons/grabber_highlight = ExtResource("1_ix0xu")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_0mjch")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_k8nai")
+HSlider/styles/slider = SubResource("StyleBoxLine_dhu8n")
